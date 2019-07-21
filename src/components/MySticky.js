@@ -6,9 +6,10 @@ import {
 class MySticky extends Component {
     constructor(props) {
         super(props);
+        console.log('collapsed');
         this.state = {
-          //notes: mock
-          notes: []
+          notes: mock
+          //notes: []
 
         }
         this.onChange = this.onChange.bind(this)

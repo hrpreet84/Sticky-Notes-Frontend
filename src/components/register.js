@@ -103,8 +103,8 @@ class RegisterForm extends Component {
 
     render() {
         return (
-            <div class="row mt-2">
-      <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+            <div className="row mt-2">
+      <div className="col-sm-9 col-md-7 col-lg-5 mx-auto">
             <div className="card">
                 <div className="card-header font-weight-bold bg-secondary text-info display-4">Register</div>
                 <div className="card-body bg-light text-primary">

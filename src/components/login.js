@@ -5,15 +5,20 @@ import {Redirect} from 'react-router';
 
 class LoginForm extends Component {
 
-    state = {
-        email: '',
+    constructor(props) {
+        super(props);
+        sessionStorage.removeItem('token');
+        // Don't call this.setState() here!
+        this.state = {  email: '',
         password: '',
         emailError:'Email Invalid',
         passwordError:'Password Too Short!',
         passwordValid:false,
         emailValid:false,
-        redirect: false
-    }
+        redirect: false };
+      }
+
+
 
     handleSubmit = e => {
         e.preventDefault();
@@ -34,6 +39,8 @@ class LoginForm extends Component {
           .then(function (response) {
             //let decodeddata = decode(response.data.token);
             sessionStorage.setItem('token',response.data.data.token);
+            sessionStorage.setItem('id',response.data.data.user._id);
+            console.log(response);
             this.props.history.push('/Mystickies')
           }.bind(this))
           .catch(function (error) {
@@ -83,8 +90,8 @@ class LoginForm extends Component {
        return <Redirect to='/MySticky'/>;
      }
         return (
-            <div class="row mt-2">
-      <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+            <div className="row mt-2">
+      <div className="col-sm-9 col-md-7 col-lg-5 mx-auto">
             <div className="card">
                 <div className="card-header font-weight-bold bg-secondary text-info display-4">Login</div>
                 <div className="card-body bg-light text-primary">

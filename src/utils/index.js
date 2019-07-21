@@ -1,5 +1,23 @@
 import axios from 'axios';
-export default function checkAuth(){
+
+
+export const login = () => {
+    sessionStorage.setItem('token', 'TstLogin');
+}
+
+export const logout = () => {
+    sessionStorage.removeItem('token');
+}
+
+export const islogin = () => {
+    if (sessionStorage.getItem('token')) {
+        return true;
+    }
+
+    return false;
+}
+
+export const  isLogin2 = async () => {
     let config = {
         headers: {
           'Content-Type': 'application/json',

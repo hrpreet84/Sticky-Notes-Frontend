@@ -1,25 +1,19 @@
-import React from 'react'
-import checkAuth from './auth';
-import { Redirect, Route } from 'react-router-dom'
+import React from 'react';
+import { Route, Redirect } from 'react-router-dom';
+import { islogin } from '../utils/index';
 
-const PrivateRoute = async ({ component: Component, ...rest }) => {
+const PrivateRoute = ({component: Component, ...rest}) => {
+  
+    return (
 
-  // Add your own authentication on the below line.
-  const isLoggedIn = await checkAuth();
-  console.log("logged in :"+isLoggedIn);
+        // Show the component only when the user is logged in
+        // Otherwise, redirect the user to /signin page
+        <Route {...rest} render={props => (
+            islogin() ?
+                <Component {...props} />
+            : <Redirect to="/login" />
+        )} />
+    );
+};
 
-  return (
-    <Route
-      {...rest}
-      render={props =>
-        isLoggedIn ? (
-          <Component {...props} />
-        ) : (
-          <Redirect to={{ pathname: '/login', state: { from: props.location } }} />
-        )
-      }
-    />
-  )
-}
-
-export default PrivateRoute
+export default PrivateRoute;

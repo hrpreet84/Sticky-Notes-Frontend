@@ -5,16 +5,28 @@ import Login from './login';
 import Register from './register';
 import Mysticky from './MySticky';
 import PrivateRoute from './PrivateRoute';
-
-
+import PublicRoute from './PublicRoute';
+import Logout from './Logout';
+import Categories from './Categories';
 
 const Main = () => (
   <Switch>
-    <Route exact path="/" component={LandingPage} />
-    <Route path="/login" component={Login} />
-    <Route path="/Register" component={Register} />
-    <PrivateRoute path="/MyStickies" component={Mysticky}/>
+    <PublicRoute exact restricted={false} path="/" component={LandingPage} />
+    <PublicRoute exact restricted={true} path="/login" component={Login} />
+    <PrivateRoute exact path="/logout" component={Logout} />
+    <PublicRoute exact path="/register" component={Register} />
+    <PrivateRoute exact path="/MyStickies" component={Mysticky}/>
+    <PrivateRoute exact path="/category" component={Categories}/>
   </Switch>
+  
+// {/* <Route path="/" component={LandingPage}>
+//   <Route path="/login" component={Login}/>
+//   <Route path="/register" component={Register}/>
+
+//   <Route component={EnsureLoggedInContainer}>
+//     <Route path="/mystickies" component={MySticky}/>
+//   </Route>
+// </Route> */}
 )
 
 export default Main;
