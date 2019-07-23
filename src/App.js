@@ -6,6 +6,7 @@ import Nav from './components/Nav';
 import { Link } from 'react-router-dom';
 import { islogin } from './utils/index';
 import LoggedInNav from './components/LoggedInNav';
+import MySticky from './components/MySticky';
 
 const lStyle = {
   fontFamily: 'Pacifico',
@@ -39,6 +40,7 @@ class App extends Component {
         <Content>
             <div className="page-content" />
             <Main/>
+            
         </Content>
     </Layout>
 </div>
