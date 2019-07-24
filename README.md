@@ -15,3 +15,6 @@ Clone repo, install, cd into folder and run:
 npm install
 npm start
 ```
+
+# Heroku link
+https://sticky-notes-frontend.herokuapp.com/
