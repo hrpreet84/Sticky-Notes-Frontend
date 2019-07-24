@@ -112,7 +112,7 @@ class LoginForm extends Component {
                 </Form.Group>
 
                 <Form.Group as={Row}>
-                <Col sm={{span:10,offset:2}}>
+                <Col sm={{span:10,offset:3}}>
                     <span className='text-danger'>{this.state.emailError}</span>
                     </Col>
                 </Form.Group>
@@ -126,7 +126,7 @@ class LoginForm extends Component {
                     </Col>
                     
                 </Form.Group>
-                <Col sm={{span:10,offset:2}}>
+                <Col sm={{span:10,offset:3}}>
                         <span className='text-danger'>{this.state.passwordError}</span>
                     </Col>
                 <Form.Group as={Row}>
