@@ -8,6 +8,8 @@ import PrivateRoute from './PrivateRoute';
 import PublicRoute from './PublicRoute';
 import Logout from './Logout';
 import Categories from './Categories';
+import Faq from './Faq';
+import About from './about';
 
 const Main = () => (
   <Switch>
@@ -17,6 +19,9 @@ const Main = () => (
     <PublicRoute exact path="/register" component={Register} />
     <PrivateRoute exact path="/MyStickies" component={Mysticky}/>
     <PrivateRoute exact path="/category" component={Categories}/>
+    <PublicRoute exact path="/faq" component={Faq} />
+    <PublicRoute exact path="/about" component={About} />
+
   </Switch>
   
 // {/* <Route path="/" component={LandingPage}>

@@ -7,7 +7,7 @@ export default function checkAuth(){
         }
       };
       
-    axios.get('http://localhost:5000/api/users/verify', config)
+    axios.get('https://sticky-notes-backend.herokuapp.com/api/users/verify', config)
           .then(function (response) {
             //let decodeddata = decode(response.data.token);
             if(response.status === 200){

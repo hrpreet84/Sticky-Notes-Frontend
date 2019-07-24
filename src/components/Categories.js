@@ -20,7 +20,7 @@ class Categories extends Component {
           };
         
         axios
-          .get('http://localhost:5000/api/category/',config)
+          .get('https://sticky-notes-backend.herokuapp.com/api/category/',config)
           .then(response => {
             this.setState({
               posts: response.data
@@ -45,7 +45,7 @@ class Categories extends Component {
                   'x-auth-token' : sessionStorage.getItem('token')
                 }
               }; 
-        axios.post('http://localhost:5000/api/category/', {
+        axios.post('https://sticky-notes-backend.herokuapp.com/api/category/', {
             title: this.state.newCategory 
           },config)
           .then(function (response) {

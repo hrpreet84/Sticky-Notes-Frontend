@@ -35,16 +35,20 @@ class LoginForm extends Component {
           };
 
         console.log(this.state.email);
-        axios.post('http://localhost:5000/api/users/authenticate', data,config)
+        axios.post('https://sticky-notes-backend.herokuapp.com/api/users/authenticate', data,config)
           .then(function (response) {
-            //let decodeddata = decode(response.data.token);
+            console.log(response.data.message)
+            if(response.data.message != undefined){
+                this.setState({passwordError:"Incorrrect email/password combination"})
+            }
+            else{
             sessionStorage.setItem('token',response.data.data.token);
             sessionStorage.setItem('id',response.data.data.user._id);
-            console.log(response);
             this.props.history.push('/Mystickies')
+        }
           }.bind(this))
           .catch(function (error) {
-            console.log(error);
+            //console.log(error.status);
           });
 
     }
@@ -53,7 +57,7 @@ class LoginForm extends Component {
         this.setState({
             email: e.target.value
         });
-        if(! this.state.email.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i)){
+        if(! this.state.email.match(/^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i)){
             this.setState({
                 emailError: "Invalid Email!"
             });
@@ -90,10 +94,10 @@ class LoginForm extends Component {
        return <Redirect to='/MySticky'/>;
      }
         return (
-            <div className="row mt-2">
+            <div className="row mt-2  p-3 mb-5 rounded">
       <div className="col-sm-9 col-md-7 col-lg-5 mx-auto">
-            <div className="card">
-                <div className="card-header font-weight-bold bg-secondary text-info display-4">Login</div>
+            <div className="card shadow-lg p-3 rounded">
+                <div className="card-header font-weight-bold orange text-white display-4">Login</div>
                 <div className="card-body bg-light text-primary">
             <Form onSubmit={this.handleSubmit}>
                 <Form.Group as={Row} controlId="formHorizontalEmail">
@@ -131,7 +135,7 @@ class LoginForm extends Component {
 
                 <Form.Group as={Row}>
                     <Col sm={{ size: 'auto', offset: 2 }}>
-                        <Button type="submit" disabled={this.state.emailValid && this.state.passwordValid}>Sign in</Button>
+                        <Button type="submit">Sign in</Button>
                         
                     </Col>
                     <Col sm={{ size: 'auto', offset: 0 }}>

@@ -13,7 +13,9 @@ class LoggedInNav extends Component{
         return(            
             <Navigation>                
                 <Link  to="/MyStickies">< span style={lStyle}>Stickies</ span></Link>
+                <Link  to="/faq">< span style={lStyle}>FAQ's</ span></Link>
                 <Link  to="/logout">< span style={lStyle}>Logout</ span></Link>
+                <Link  to="/about">< span style={lStyle}>About</ span></Link>
             </Navigation>
         );
     }

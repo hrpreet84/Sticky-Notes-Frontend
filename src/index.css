@@ -25,3 +25,7 @@ code {
   color: #FFF;
   border-bottom: 2px solid #fff;
 }
+
+.orange{
+  background: linear-gradient(90deg, rgba(177,179,226,1) 0%, rgba(226,77,47,1) 34%); 
+}

@@ -21,7 +21,7 @@ class RegisterForm extends Component {
     handleSubmit = e => {
         e.preventDefault();
         if(this.state.password === this.state.confirmPassword){
-        axios.post('http://localhost:5000/api/users/', {
+        axios.post('https://sticky-notes-backend.herokuapp.com/api/users/', {
             email: this.state.email,
             password: this.state.password,
             first_name:this.state.fname,
@@ -34,7 +34,12 @@ class RegisterForm extends Component {
             }
           }.bind(this))
           .catch(function (error) {
+              
               console.log(error.response.data);
+              if(error.response.data.message != undefined){
+                this.setState({emailError:"User already exists"})
+              }
+              else{
             error.response.data.errors.forEach(element => {
                 if(element.param === 'password'){
                     this.setState({passwordError: element.msg});
@@ -51,7 +56,8 @@ class RegisterForm extends Component {
                 else{
                     return Promise.reject(error.response);
                 }
-            });
+            
+            })};
           }.bind(this));
         }
         else{
@@ -103,10 +109,10 @@ class RegisterForm extends Component {
 
     render() {
         return (
-            <div className="row mt-2">
+            <div className="row mt-2  p-3 mb-5 rounded">
       <div className="col-sm-9 col-md-7 col-lg-5 mx-auto">
             <div className="card">
-                <div className="card-header font-weight-bold bg-secondary text-info display-4">Register</div>
+                <div className="card-header font-weight-bold orange text-white display-4">Register</div>
                 <div className="card-body bg-light text-primary">
             <Form onSubmit={this.handleSubmit}>
                 <Form.Group as={Row} controlId="formHorizontalFname">
@@ -246,7 +252,7 @@ class RegisterForm extends Component {
                 
                 <Form.Group as={Row}>
                     <Col sm={{ span: 10, offset: 2 }}>
-                        <Button type="submit">Register</Button>
+                        <Button type="submit" className="btn btn-danger">Register</Button>
                     </Col>
                 </Form.Group>
             </Form>

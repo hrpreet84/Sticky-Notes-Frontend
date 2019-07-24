@@ -3,8 +3,9 @@ import { Grid } from 'react-mdl';
 
 const pStyle = {
   fontFamily: 'Pacifico',
-  marginLeft: '255px',
-  marginTop: '100px'
+  marginLeft: '300px',
+  marginTop: '100px',
+  textAlign: 'center'
 };
 
 class Landing extends Component {

@@ -25,7 +25,7 @@ class MySticky extends Component {
     };
 
     axios
-      .get('http://localhost:5000/api/notes/', config)
+      .get('https://sticky-notes-backend.herokuapp.com/api/notes/', config)
       .then(response => {
         this.setState({
           notes: response.data
@@ -53,7 +53,7 @@ class MySticky extends Component {
         }
       };
      
-      axios.post('http://localhost:5000/api/notes/', note, config)
+      axios.post('https://sticky-notes-backend.herokuapp.com/api/notes/', note, config)
         .then(function (response) {
           //this.getCategories();
           console.log(response);
@@ -84,7 +84,7 @@ class MySticky extends Component {
   console.log("onChangecalled");
   console.log(note);
      
-      axios.post('http://localhost:5000/api/notes/update',note, configs)
+      axios.post('https://sticky-notes-backend.herokuapp.com/api/notes/update',note, configs)
         .then(function (response) {
           //this.getCategories();
           console.log(response);
@@ -126,7 +126,7 @@ console.log(note.id);
       id : note.id
     }
    
-    axios.post('http://localhost:5000/api/notes/delete',data, configs)
+    axios.post('https://sticky-notes-backend.herokuapp.com/api/notes/delete',data, configs)
       .then(function (response) {
         //this.getCategories();
         console.log(response);

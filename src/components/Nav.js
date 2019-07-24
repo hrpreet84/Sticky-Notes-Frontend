@@ -13,7 +13,10 @@ class Nav extends Component{
             <Navigation>
                 <Link  to="/login"><span style={lStyle}>Login</ span></Link>
                 <Link  to="/register">< span style={lStyle}>Register</ span></Link>
-                <Link  to="/logout">< span style={lStyle}>Logout</ span></Link>
+                
+                <Link  to="/faq">< span style={lStyle}>FAQ's</ span></Link>
+                
+                <Link  to="/about">< span style={lStyle}>About</ span></Link>
             </Navigation>
         );
     }
