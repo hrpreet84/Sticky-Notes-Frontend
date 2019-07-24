@@ -101,7 +101,7 @@ class LoginForm extends Component {
                 <div className="card-body bg-light text-primary">
             <Form onSubmit={this.handleSubmit}>
                 <Form.Group as={Row} controlId="formHorizontalEmail">
-                    <Form.Label column sm={2}>
+                    <Form.Label column sm={3}>
                         Email
                     </Form.Label>
                     <Col sm={6}>
